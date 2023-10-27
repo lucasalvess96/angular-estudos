@@ -1,36 +1,32 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '/bem-vindo',
-    loadChildren: () => import('./bem-vindo/bem-vindo.module').then((m) => m.BemVindoModule),
-    data: {
-      breadcrumb: {
-        label: 'Bem-vindo',
-        disable: true,
-      },
-    },
+    path: 'welcome',
+    loadChildren: () => import('./features/welcome/welcome.module').then((m) => m.WelcomeModule),
+  },
+  {
+    path: 'person',
+    loadChildren: () => import('./features/person/person.module').then((m) => m.PersonModule),
   },
   {
     path: '',
-    redirectTo: 'bem-vindo',
+    redirectTo: 'welcome',
     pathMatch: 'full',
   },
   {
     path: '**',
-    loadChildren: () => import('./bem-vindo/bem-vindo.module').then((m) => m.BemVindoModule),
-    data: {
-      breadcrumb: {
-        label: 'Bem-vindo',
-        disable: true,
-      },
-    },
+    loadChildren: () => import('./features/welcome/welcome.module').then((m) => m.WelcomeModule),
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -6,10 +6,11 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { PersonModule } from './features/person/person.module';
 import { WelcomeModule } from './features/welcome/welcome.module';
+import { PageNotFoundModule } from './features/page-not-found/page-not-found.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, RouterModule, WelcomeModule, PersonModule],
+  imports: [BrowserModule, BrowserAnimationsModule, RouterModule, WelcomeModule, PersonModule, PageNotFoundModule],
   providers: [],
   bootstrap: [AppComponent],
 })

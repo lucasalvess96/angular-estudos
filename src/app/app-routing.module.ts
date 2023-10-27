@@ -12,12 +12,12 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'welcome',
+    redirectTo: '/welcome',
     pathMatch: 'full',
   },
   {
     path: '**',
-    loadChildren: () => import('./features/welcome/welcome.module').then((m) => m.WelcomeModule),
+    loadChildren: () => import('./features/page-not-found/page-not-found.module').then((m) => m.PageNotFoundModule),
   },
 ];
 

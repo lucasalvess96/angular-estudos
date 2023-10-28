@@ -9,6 +9,7 @@ const routes: Routes = [
   {
     path: 'person',
     loadChildren: () => import('./features/person/person.module').then((m) => m.PersonModule),
+    data: { preload: true },
   },
   {
     path: '',

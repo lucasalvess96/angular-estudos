@@ -4,7 +4,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 
 const routes: Routes = [
   {
-    path: 'pageNotFound404',
+    path: '**',
     component: PageNotFoundComponent,
   },
 ];

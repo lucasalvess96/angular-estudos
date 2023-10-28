@@ -5,5 +5,6 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
 @NgModule({
   declarations: [],
   imports: [CommonModule, AngularMaterialModule],
+  exports: [AngularMaterialModule],
 })
 export class SharedModule {}

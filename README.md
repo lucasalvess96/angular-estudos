@@ -6,6 +6,7 @@ ng add @angular/material
 npm i @angular/flex-layout
 npm install --save ngx-mask@13.2.1
 npm install ngx-toastr@14.3.0
+npm install -g json-server || json-server --watch db.json
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 

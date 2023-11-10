@@ -1,6 +1,31 @@
-<p>person works!</p>
+<main fxLayout="column" fxLayoutAlign="space-evely start" [style.margin-left.rem]="1">
+  <p>person works!</p>
 
-<button routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page" mat-raised-button color="primary">
-  <mat-icon>arrow_back</mat-icon>
-  back
-</button>
+  <mat-card-actions>
+    <button
+      type="button"
+      title="back home"
+      routerLink=""
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+      mat-flat-button
+      color="primary"
+    >
+      <mat-icon>arrow_back</mat-icon>
+      back
+    </button>
+    <button
+      type="button"
+      title="go to person-create"
+      routerLink="person-create"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+      mat-flat-button
+      color="primary"
+      [style.margin-left.rem]="1"
+    >
+      <mat-icon>create</mat-icon>
+      create
+    </button>
+  </mat-card-actions>
+</main>

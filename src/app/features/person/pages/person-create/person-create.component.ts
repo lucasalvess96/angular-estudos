@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-person-create',
@@ -7,9 +7,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./person-create.component.css'],
 })
 export class PersonCreateComponent implements OnInit {
-  formRegister?: FormGroup;
+  formRegister?: UntypedFormGroup;
 
-  constructor(private formbuilder: FormBuilder) {}
+  constructor(private formbuilder: UntypedFormBuilder) {}
 
   ngOnInit(): void {
     this.createForm();

@@ -9,50 +9,52 @@
     [style.maxWidth.vw]="'41.6'"
     [style.width]="'100%'"
   >
-    <table [style.width]="'100%'" cellspacing="0">
-      <tr>
-        <td>
-          <mat-form-field [style.width]="'100%'" appearance="fill">
-            <mat-label>Name</mat-label>
-            <input matInput placeholder="your name" autocomplete="off" formControlName="name" required />
+    <table aria-describedby="formulário de preenchimento" [style.width]="'100%'">
+      <th>
+        <tr>
+          <td>
+            <mat-form-field [style.width]="'100%'" appearance="fill">
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="your name" autocomplete="off" formControlName="name" required />
 
-            <mat-error *ngIf="formRegister.get('name')?.invalid">
-              <span *ngIf="formRegister.get('name')?.errors?.['required']">Campo obrigatório</span>
-            </mat-error>
+              <mat-error *ngIf="formRegister.get('name')?.invalid">
+                <span *ngIf="formRegister.get('name')?.errors?.['required']">Campo obrigatório</span>
+              </mat-error>
 
-            <mat-error *ngIf="formRegister.get('name')?.invalid">
-              <span *ngIf="formRegister.get('name')?.errors?.['pattern']">O campo só permite letras</span>
-            </mat-error>
-          </mat-form-field>
-        </td>
+              <mat-error *ngIf="formRegister.get('name')?.invalid">
+                <span *ngIf="formRegister.get('name')?.errors?.['pattern']">O campo só permite letras</span>
+              </mat-error>
+            </mat-form-field>
+          </td>
 
-        <td>
-          <mat-form-field [style.width]="'100%'" appearance="fill">
-            <mat-label>Age</mat-label>
-            <input
-              matInput
-              placeholder="your age"
-              autocomplete="off"
-              formControlName="age"
-              minlength="2"
-              maxlength="2"
-              required
-            />
+          <td>
+            <mat-form-field [style.width]="'100%'" appearance="fill">
+              <mat-label>Age</mat-label>
+              <input
+                matInput
+                placeholder="your age"
+                autocomplete="off"
+                formControlName="age"
+                minlength="2"
+                maxlength="2"
+                required
+              />
 
-            <mat-error *ngIf="formRegister.get('age')?.invalid">
-              <span *ngIf="formRegister.get('age')?.errors?.['required']">Campo obrigatório</span>
-            </mat-error>
+              <mat-error *ngIf="formRegister.get('age')?.invalid">
+                <span *ngIf="formRegister.get('age')?.errors?.['required']">Campo obrigatório</span>
+              </mat-error>
 
-            <mat-error *ngIf="formRegister.get('age')?.invalid">
-              <span *ngIf="formRegister.get('age')?.errors?.['minlength']">Informe no mínimo 2 dígitos</span>
-            </mat-error>
+              <mat-error *ngIf="formRegister.get('age')?.invalid">
+                <span *ngIf="formRegister.get('age')?.errors?.['minlength']">Informe no mínimo 2 dígitos</span>
+              </mat-error>
 
-            <mat-error *ngIf="formRegister.get('age')?.invalid">
-              <span *ngIf="formRegister.get('age')?.errors?.['pattern']">O campo só permite números</span>
-            </mat-error>
-          </mat-form-field>
-        </td>
-      </tr>
+              <mat-error *ngIf="formRegister.get('age')?.invalid">
+                <span *ngIf="formRegister.get('age')?.errors?.['pattern']">O campo só permite números</span>
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+      </th>
     </table>
 
     <mat-form-field appearance="fill" [style.width]="'100%'">

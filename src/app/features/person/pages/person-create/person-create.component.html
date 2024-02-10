@@ -4,16 +4,16 @@
   <form
     *ngIf="formRegister"
     [formGroup]="formRegister"
-    (ngSubmit)="onSubmit()"
     [style.minWidth.vw]="'12.5'"
     [style.maxWidth.vw]="'41.6'"
     [style.width]="'100%'"
+    (ngSubmit)="onSubmit()"
   >
     <table aria-describedby="formulário de preenchimento" [style.width]="'100%'">
       <th>
         <tr>
           <td>
-            <mat-form-field [style.width]="'100%'" appearance="fill">
+            <mat-form-field appearance="fill" [style.width]="'100%'">
               <mat-label>Name</mat-label>
               <input matInput placeholder="your name" autocomplete="off" formControlName="name" required />
 
@@ -28,7 +28,7 @@
           </td>
 
           <td>
-            <mat-form-field [style.width]="'100%'" appearance="fill">
+            <mat-form-field appearance="fill" [style.width]="'100%'">
               <mat-label>Age</mat-label>
               <input
                 matInput

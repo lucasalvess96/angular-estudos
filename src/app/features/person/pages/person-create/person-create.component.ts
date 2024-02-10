@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, inject } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-person-create',
@@ -7,16 +7,16 @@ import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms
   styleUrls: ['./person-create.component.css'],
 })
 export class PersonCreateComponent implements OnInit {
-  formRegister?: UntypedFormGroup;
+  formRegister?: FormGroup;
 
-  constructor(private formbuilder: UntypedFormBuilder) {}
+  private formBuilder: FormBuilder = inject(FormBuilder);
 
   ngOnInit(): void {
     this.createForm();
   }
 
   createForm(): void {
-    this.formRegister = this.formbuilder.group({
+    this.formRegister = this.formBuilder.group({
       name: ['', [Validators.required, Validators.pattern('^([A-Za-zÀ-ú]+[A-Za-zÀ-ú ])*$')]],
       age: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2), Validators.pattern('\\d+')]],
       cpf: [

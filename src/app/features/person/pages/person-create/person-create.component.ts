@@ -1,5 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Person } from '../../models/person';
+import { PersonService } from '../../service/person.service';
 
 @Component({
   selector: 'app-person-create',
@@ -10,6 +14,12 @@ export class PersonCreateComponent implements OnInit {
   formRegister?: FormGroup;
 
   private formBuilder: FormBuilder = inject(FormBuilder);
+
+  private router = inject(Router);
+
+  private toastService = inject(ToastrService);
+
+  private personService = inject(PersonService);
 
   ngOnInit(): void {
     this.createForm();
@@ -28,7 +38,17 @@ export class PersonCreateComponent implements OnInit {
 
   onSubmit(): void {
     if (this.formRegister) {
-      console.log(this.formRegister.value);
+      this.personService.createPerson(this.formRegister.value).subscribe({
+        next: (response: Person) => {
+          console.log(response);
+          this.toastService.success('Pessoa cadastrada com sucesso');
+          this.formRegister?.reset();
+          this.formRegister?.markAsUntouched();
+          this.formRegister?.markAsPristine();
+          this.router.navigate(['/person-information']);
+        },
+        error: (erro) => console.log(erro),
+      });
     }
   }
 }
